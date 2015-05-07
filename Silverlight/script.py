@@ -1,5 +1,9 @@
-import os, sys, platform, subprocess
+import os
+import sys
+import platform
+import subprocess
 
+"""Имена исполняемых файлов"""
 if platform.machine() == 'AMD64':
     INSTALLER = 'silverlight_64.msi'
     UPDATE = 'Silverlight_64.msp'
@@ -7,32 +11,30 @@ else:
     INSTALLER = 'silverlight_32.msi'
     UPDATE = 'Silverlight_32.msp'
 
+"""Текущая директория"""
+DIR = os.path.dirname(sys.argv[0])
+
+"""Полный путь к исполняемым файлам"""
+BNINSTALLER = os.path.join('', DIR, INSTALLER)
+BNUPDATE = os.path.join('', DIR, UPDATE)
+
 
 def taskkill():
-    subprocess.call(['taskkill.exe',
-        '/F', '/T',
-        '/IM', INSTALLER],
+    subprocess.call(['taskkill.exe', '/F', '/T', '/IM', INSTALLER],
         shell=False, stdout=subprocess.PIPE)
 
 
 def remove():
-    if not os.path.isfile(INSTALLER):
-        print("Отсутствует установщик!!")
-    else:
-        print("Программа удаляется...")
+    if os.path.isfile(BNINSTALLER):
         subprocess.call(['msiexec', '/qn', '/x',
-            os.path.join('', os.getcwd(), INSTALLER)],
+            os.path.join('', os.getcwd(), BNINSTALLER)],
             shell=False, stdout=subprocess.PIPE)
 
 
 def install():
-    if not os.path.isfile(INSTALLER):
-        print("Отсутствует установщик!!")
-    else:
-        print("Установка...")
-        subprocess.call(['msiexec', '/qn',
-            '/i', INSTALLER,
-            '/update', UPDATE], shell=False, stdout=subprocess.PIPE)
+    if os.path.isfile(BNINSTALLER):
+        subprocess.call(['msiexec', '/qn', '/i', BNINSTALLER,
+            '/update', BNUPDATE], shell=False, stdout=subprocess.PIPE)
 
 taskkill()
 
