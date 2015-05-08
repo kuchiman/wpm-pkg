@@ -26,8 +26,7 @@ def taskkill():
 
 def remove():
     if os.path.isfile(BNINSTALLER):
-        subprocess.call(['msiexec', '/qn', '/x',
-            os.path.join('', os.getcwd(), BNINSTALLER)],
+        subprocess.call(['msiexec', '/qn', '/x', BNINSTALLER],
             shell=False, stdout=subprocess.PIPE)
 
 
