@@ -1,0 +1,153 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\.bmp]
+@="XnView.bmp"
+"PerceivedType"="image"
+"Content Type"="image/bmp"
+
+[HKEY_CLASSES_ROOT\.emf]
+"PerceivedType"="image"
+@="XnView.Image"
+
+[HKEY_CLASSES_ROOT\.gif]
+"PerceivedType"="image"
+@="XnView.gif"
+"Content Type"="image/gif"
+
+[HKEY_CLASSES_ROOT\.jpe]
+"PerceivedType"="image"
+@="XnView.Image"
+"Content Type"="image/jpeg"
+
+[HKEY_CLASSES_ROOT\.jpeg]
+"PerceivedType"="image"
+@="XnView.Image"
+"Content Type"="image/jpeg"
+
+[HKEY_CLASSES_ROOT\.jpg]
+"PerceivedType"="image"
+@="XnView.jpg"
+"Content Type"="image/jpeg"
+
+[HKEY_CLASSES_ROOT\.png]
+"PerceivedType"="image"
+@="XnView.png"
+"Content Type"="image/png"
+
+[HKEY_CLASSES_ROOT\.rle]
+@="XnView.Image"
+
+[HKEY_CLASSES_ROOT\.targa]
+@="XnView.Image"
+
+[HKEY_CLASSES_ROOT\.tga]
+@="XnView.tga"
+
+[HKEY_CLASSES_ROOT\.tif]
+"Content Type"="image/tiff"
+@="XnView.tif"
+
+[HKEY_CLASSES_ROOT\.tiff]
+"Content Type"="image/tiff"
+"PerceivedType"="image"
+@="XnView.Image"
+
+[HKEY_CLASSES_ROOT\.wmf]
+"PerceivedType"="image"
+@="XnView.Image"
+
+[HKEY_CLASSES_ROOT\XnView.bmp]
+[HKEY_CLASSES_ROOT\XnView.bmp\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,2"
+[HKEY_CLASSES_ROOT\XnView.bmp\shell]
+[HKEY_CLASSES_ROOT\XnView.bmp\shell\open]
+[HKEY_CLASSES_ROOT\XnView.bmp\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\XnView.gif]
+[HKEY_CLASSES_ROOT\XnView.gif\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,3"
+[HKEY_CLASSES_ROOT\XnView.gif\shell]
+[HKEY_CLASSES_ROOT\XnView.gif\shell\open]
+[HKEY_CLASSES_ROOT\XnView.gif\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\XnView.iff]
+[HKEY_CLASSES_ROOT\XnView.iff\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,4"
+[HKEY_CLASSES_ROOT\XnView.iff\shell]
+[HKEY_CLASSES_ROOT\XnView.iff\shell\open]
+[HKEY_CLASSES_ROOT\XnView.iff\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\XnView.Image]
+@="XnView Image"
+[HKEY_CLASSES_ROOT\XnView.Image\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,1"
+[HKEY_CLASSES_ROOT\XnView.Image\shell]
+[HKEY_CLASSES_ROOT\XnView.Image\shell\open]
+[HKEY_CLASSES_ROOT\XnView.Image\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\XnView.jpg]
+[HKEY_CLASSES_ROOT\XnView.jpg\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,5"
+[HKEY_CLASSES_ROOT\XnView.jpg\shell]
+[HKEY_CLASSES_ROOT\XnView.jpg\shell\open]
+[HKEY_CLASSES_ROOT\XnView.jpg\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\XnView.pcx]
+[HKEY_CLASSES_ROOT\XnView.pcx\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,6"
+[HKEY_CLASSES_ROOT\XnView.pcx\shell]
+[HKEY_CLASSES_ROOT\XnView.pcx\shell\open]
+[HKEY_CLASSES_ROOT\XnView.pcx\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\XnView.pic]
+[HKEY_CLASSES_ROOT\XnView.pic\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,7"
+[HKEY_CLASSES_ROOT\XnView.pic\shell]
+[HKEY_CLASSES_ROOT\XnView.pic\shell\open]
+[HKEY_CLASSES_ROOT\XnView.pic\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\XnView.png]
+[HKEY_CLASSES_ROOT\XnView.png\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,8"
+[HKEY_CLASSES_ROOT\XnView.png\shell]
+[HKEY_CLASSES_ROOT\XnView.png\shell\open]
+[HKEY_CLASSES_ROOT\XnView.png\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\XnView.Slide]
+@="XnView Slide"
+[HKEY_CLASSES_ROOT\XnView.Slide\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,0"
+[HKEY_CLASSES_ROOT\XnView.Slide\shell]
+[HKEY_CLASSES_ROOT\XnView.Slide\shell\open]
+[HKEY_CLASSES_ROOT\XnView.Slide\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" -slide \"%1\""
+
+[HKEY_CLASSES_ROOT\XnView.tga]
+[HKEY_CLASSES_ROOT\XnView.tga\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,9"
+[HKEY_CLASSES_ROOT\XnView.tga\shell]
+[HKEY_CLASSES_ROOT\XnView.tga\shell\open]
+[HKEY_CLASSES_ROOT\XnView.tga\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\XnView.tif]
+[HKEY_CLASSES_ROOT\XnView.tif\DefaultIcon]
+@="C:\\Program Files\\XnView\\xnview.exe,10"
+[HKEY_CLASSES_ROOT\XnView.tif\shell]
+[HKEY_CLASSES_ROOT\XnView.tif\shell\open]
+[HKEY_CLASSES_ROOT\XnView.tif\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\Applications\xnview.exe]
+[HKEY_CLASSES_ROOT\Applications\xnview.exe\shell]
+[HKEY_CLASSES_ROOT\Applications\xnview.exe\shell\open]
+[HKEY_CLASSES_ROOT\Applications\xnview.exe\shell\open\command]
+@="\"C:\\Program Files\\XnView\\xnview.exe\" \"%1\""
