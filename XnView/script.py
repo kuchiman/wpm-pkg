@@ -3,6 +3,8 @@ import sys
 import platform
 import subprocess
 
+"""http://www.itninja.com/software/gougelet-pierre-e/xnview/1-8655"""
+
 if platform.machine() == 'AMD64':
     PROGRAMDIR = 'C:\Program Files (x86)\XnView'
 else:
@@ -36,14 +38,14 @@ def taskkill():
 
 def remove():
     if os.path.isfile(BNUNINSTALLER):
-        subprocess.call([BNUNINSTALLER, '/silent'],
+        subprocess.call([BNUNINSTALLER, '/verysilent'],
             shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
 
 
 def install():
     p = subprocess.call(['regedit', '/S', BNASSOCIATE],
         shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
-    subprocess.call([BNINSTALLER, '/silent'],
+    subprocess.call([BNINSTALLER, '/verysilent'],
         shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
 
 check_files()
