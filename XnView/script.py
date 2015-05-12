@@ -29,18 +29,18 @@ def check_files():
 def taskkill():
     subprocess.call(['taskkill.exe', '/F', '/T',
         '/IM', INSTALLER, '/IM', UNINSTALLER],
-        shell=False, stdout=subprocess.PIPE, stderr=STDOUT)
+        shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
 
 
 def remove():
     if os.path.isfile(BNUNINSTALLER):
         subprocess.call([BNUNINSTALLER, '/silent'],
-            shell=False, stdout=subprocess.PIPE, stderr=STDOUT)
+            shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
 
 
 def install():
     subprocess.call([BNINSTALLER, '/silent'],
-        shell=False, stdout=subprocess.PIPE, stderr=STDOUT)
+        shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
 
 check_files()
 taskkill()
