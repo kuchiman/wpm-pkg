@@ -1,13 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-#import platform
 import subprocess
 
-#if platform.machine() == 'AMD64':
-    #PROGRAMDIR = 'C:\Program Files (x86)\WinDjView'
-#else:
-    #PROGRAMDIR = 'C:\Program Files\WinDjView'
 PROGRAMDIR = 'C:\Program Files\WinDjView'
 
 """Имена исполняемых файлов"""
