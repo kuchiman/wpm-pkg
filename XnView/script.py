@@ -21,8 +21,7 @@ DIR = os.path.dirname(sys.argv[0])
 """Полный путь к исполняемым файлам"""
 BNINSTALLER = os.path.join('', DIR, INSTALLER)
 BNUNINSTALLER = os.path.join('', PROGRAMDIR, UNINSTALLER)
-BNASSOCIATE = os.path.join('', PROGRAMDIR, ASSOCIATE)
-
+BNASSOCIATE = os.path.join('', DIR, ASSOCIATE)
 
 def check_files():
     if not os.path.isfile(BNINSTALLER) or not os.path.isfile(BNASSOCIATE):
@@ -43,7 +42,7 @@ def remove():
 
 
 def install():
-    p = subprocess.call(['regedit', '/S', BNASSOCIATE],
+    subprocess.call(['regedit', '/S', BNASSOCIATE],
         shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
     subprocess.call([BNINSTALLER, '/verysilent'],
         shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
