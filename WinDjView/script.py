@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-import platform
+#import platform
 import subprocess
 
-if platform.machine() == 'AMD64':
-    PROGRAMDIR = 'C:\Program Files (x86)\WinDjView'
-else:
-    PROGRAMDIR = 'C:\Program Files\WinDjView'
+#if platform.machine() == 'AMD64':
+    #PROGRAMDIR = 'C:\Program Files (x86)\WinDjView'
+#else:
+    #PROGRAMDIR = 'C:\Program Files\WinDjView'
+PROGRAMDIR = 'C:\Program Files\WinDjView'
 
 """Имена исполняемых файлов"""
 INSTALLER = 'WinDjView-2.0.2-Setup.exe'
@@ -30,18 +31,18 @@ def check_files():
 def taskkill():
     subprocess.call(['taskkill.exe', '/F', '/T',
         '/IM', INSTALLER, '/IM', UNINSTALLER],
-        shell=False, stdout=subprocess.PIPE, stderr=STDOUT)
+        shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
 
 
 def remove():
     if os.path.isfile(BNUNINSTALLER):
-        subprocess.call([BNUNINSTALLER, '/s'],
-            shell=False, stdout=subprocess.PIPE, stderr=STDOUT)
+        subprocess.call([BNUNINSTALLER, '/S'],
+            shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
 
 
 def install():
-    subprocess.call([BNINSTALLER, '/s'],
-        shell=False, stdout=subprocess.PIPE, stderr=STDOUT)
+    subprocess.call([BNINSTALLER, '/S'],
+        shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
 
 check_files()
 taskkill()
