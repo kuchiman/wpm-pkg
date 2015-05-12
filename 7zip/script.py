@@ -38,6 +38,7 @@ def install():
         subprocess.call(['msiexec', '/qn', '/i', BNINSTALLER],
             shell=False, stdout=subprocess.PIPE)
 
+check_files()
 taskkill()
 
 if sys.argv[1] == 'install':
