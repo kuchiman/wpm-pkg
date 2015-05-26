@@ -3,6 +3,7 @@ import sys
 import platform
 import subprocess
 
+
 if platform.machine() == 'AMD64':
     PROGRAMDIR = 'C:\Program Files (x86)\Mozilla Firefox'
 else:
@@ -12,6 +13,11 @@ else:
 INSTALLER = 'Firefox_Setup.exe'
 UNINSTALLER = 'helper.exe'
 
+"""Файлы пакета"""
+FILES = (
+    INSTALLER,
+    UNINSTALLER)
+
 """Текущая директория"""
 DIR = os.path.dirname(sys.argv[0])
 
@@ -20,16 +26,18 @@ BNINSTALLER = os.path.join('', DIR, INSTALLER)
 BNUNINSTALLER = os.path.join('', PROGRAMDIR, 'uninstall', UNINSTALLER)
 
 
-def check_files():
-    if not os.path.isfile(BNINSTALLER):
-        print("Отсутствует инсталлятор!!")
+def check_files(files):
+    i = []
+    current_dir = os.path.dirname(sys.argv[0])
+    for f in files:
+        if not os.path.isfile(os.path.join('', current_dir, f)):
+            i.append(f)
+
+    if len(i):
+        print("Отсутствуют файлы!!")
+        for s in i:
+            print(s)
         sys.exit()
-
-
-def taskkill():
-    subprocess.call(['taskkill.exe', '/F', '/T',
-        '/IM', INSTALLER, '/IM', UNINSTALLER],
-        shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
 
 
 def run(*command):
@@ -38,20 +46,22 @@ def run(*command):
     return p
 
 
+def taskkill(*names):
+    command = ['taskkill.exe', '/F', '/T']
+    for n in names:
+        command += ['/IM', n]
+    run(*command)
+
+
 def remove():
-    if os.path.isfile(BNUNINSTALLER):
-        run(BNUNINSTALLER, '/s')
-        #subprocess.call([BNUNINSTALLER, '/s'],
-            #shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
+    run(BNUNINSTALLER, '/s')
 
 
 def install():
     run(BNINSTALLER, '/s')
-    #subprocess.call([BNINSTALLER, '/s'],
-        #shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
 
-check_files()
-taskkill()
+check_files(FILES)
+taskkill(INSTALLER, UNINSTALLER)
 
 if sys.argv[1] == 'install':
     install()

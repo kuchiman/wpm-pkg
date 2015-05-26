@@ -23,6 +23,7 @@ BNINSTALLER = os.path.join('', DIR, INSTALLER)
 BNUNINSTALLER = os.path.join('', PROGRAMDIR, UNINSTALLER)
 BNASSOCIATE = os.path.join('', DIR, ASSOCIATE)
 
+
 def check_files():
     if not os.path.isfile(BNINSTALLER) or not os.path.isfile(BNASSOCIATE):
         print("Отсутствует инсталлятор!!")
