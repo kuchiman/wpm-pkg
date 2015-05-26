@@ -1,43 +1,36 @@
-import os
+# -*- coding: utf-8 -*-
 import sys
-import platform
-import subprocess
+
+sys.path.append(sys.argv[1])
+from scriptlib import *
+
+"""Файлы пакета"""
+FILES = (
+    'silverlight_64.msi',
+    'Silverlight_64.msp',
+    'silverlight_32.msi',
+    'Silverlight_32.msp'
+)
 
 """Имена исполняемых файлов"""
-if platform.machine() == 'AMD64':
-    INSTALLER = 'silverlight_64.msi'
-    UPDATE = 'Silverlight_64.msp'
+if ARCH == '64':
+    INSTALLER = os.path.join('', DIR, FILES[0])
+    UPDATE = os.path.join('', DIR, FILES[1])
 else:
-    INSTALLER = 'silverlight_32.msi'
-    UPDATE = 'Silverlight_32.msp'
-
-"""Текущая директория"""
-DIR = os.path.dirname(sys.argv[0])
-
-"""Полный путь к исполняемым файлам"""
-BNINSTALLER = os.path.join('', DIR, INSTALLER)
-BNUPDATE = os.path.join('', DIR, UPDATE)
-
-
-def taskkill():
-    subprocess.call(['taskkill.exe', '/F', '/T', '/IM', INSTALLER],
-        shell=False, stdout=subprocess.PIPE)
-
-
-def remove():
-    if os.path.isfile(BNINSTALLER):
-        subprocess.call(['msiexec', '/qn', '/x', BNINSTALLER],
-            shell=False, stdout=subprocess.PIPE)
+    INSTALLER = os.path.join('', DIR, FILES[2])
+    UPDATE = os.path.join('', DIR, FILES[3])
 
 
 def install():
-    if os.path.isfile(BNINSTALLER):
-        subprocess.call(['msiexec', '/qn', '/i', BNINSTALLER,
-            '/update', BNUPDATE], shell=False, stdout=subprocess.PIPE)
+    run_msi('/i', INSTALLER, '/update', UPDATE)
 
-taskkill()
 
-if sys.argv[1] == 'install':
+def remove():
+    run_msi('/x', INSTALLER)
+
+check_files(FILES)
+
+if ACTION == 'install':
     install()
-elif sys.argv[1] == 'remove':
+elif ACTION == 'remove':
     remove()

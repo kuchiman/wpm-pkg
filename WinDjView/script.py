@@ -1,48 +1,29 @@
 # -*- coding: utf-8 -*-
-import os
 import sys
-import subprocess
 
-PROGRAMDIR = 'C:\Program Files\WinDjView'
+sys.path.append(sys.argv[1])
+from scriptlib import *
+
+"""Файлы пакета"""
+FILES = (
+    'WinDjView-2.0.2-Setup.exe',
+)
 
 """Имена исполняемых файлов"""
-INSTALLER = 'WinDjView-2.0.2-Setup.exe'
-UNINSTALLER = 'uninstall.exe'
-
-"""Текущая директория"""
-DIR = os.path.dirname(sys.argv[0])
-
-"""Полный путь к исполняемым файлам"""
-BNINSTALLER = os.path.join('', DIR, INSTALLER)
-BNUNINSTALLER = os.path.join('', PROGRAMDIR, UNINSTALLER)
-
-
-def check_files():
-    if not os.path.isfile(BNINSTALLER):
-        print("Отсутствует инсталлятор!!")
-        sys.exit()
-
-
-def taskkill():
-    subprocess.call(['taskkill.exe', '/F', '/T',
-        '/IM', INSTALLER, '/IM', UNINSTALLER],
-        shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
-
-
-def remove():
-    if os.path.isfile(BNUNINSTALLER):
-        subprocess.call([BNUNINSTALLER, '/S'],
-            shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
+INSTALLER = os.path.join('', DIR, FILES[0])
+UNINSTALLER = os.path.join('', SYSDIR, 'WinDjView', 'uninstall.exe')
 
 
 def install():
-    subprocess.call([BNINSTALLER, '/S'],
-        shell=False, stdout=subprocess.PIPE, stderr=sys.stdout)
+    run_exe(INSTALLER, '/S')
 
-check_files()
-taskkill()
 
-if sys.argv[1] == 'install':
+def remove():
+    run_exe(UNINSTALLER, '/S')
+
+check_files(FILES)
+
+if ACTION == 'install':
     install()
-elif sys.argv[1] == 'remove':
+elif ACTION == 'remove':
     remove()
