@@ -17,7 +17,7 @@ INSTALLER1 = os.path.join('', DIR, FILES[1])
 
 def install():
     run_msi('/i', INSTALLER0, 'RebootYesNo=No', 'REGISTER_ALL_MSO_TYPES=0',
-        'UI_LANGS=ru_RU', 'REMOVE=gm_o_Onlineupdate')
+        'UI_LANGS=ru_RU')
     run_msi('/i', INSTALLER1)
 
 
