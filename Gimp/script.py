@@ -19,7 +19,8 @@ UNINSTALLER = os.path.join('', SYSDIR, 'GIMP',
 
 
 def install():
-    run_exe(INSTALLER0, '/verysilent', '/norestart')
+    run_exe(INSTALLER0, '/verysilent', '/norestart',
+        '/dir='+os.path.join('', SYSDIR, 'GIMP'))
     run_exe(INSTALLER0, '/silent', '/norestart')
 
 
