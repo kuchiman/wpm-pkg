@@ -6,8 +6,8 @@ from scriptlib import *
 
 """Файлы пакета"""
 FILES = (
-    'flash_player_active_x.exe',
-    'flash_player.exe'
+    'install_flash_player_17_active_x.exe',
+    'install_flash_player_17_plugin.exe'
 )
 
 """Имена исполняемых файлов"""

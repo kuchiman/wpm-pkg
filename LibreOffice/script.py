@@ -6,8 +6,8 @@ from scriptlib import *
 
 """Файлы пакета"""
 FILES = (
-    'LibreOffice_Win_x86.msi',
-    'LibreOffice_Win_x86_helppack_ru.msi'
+    'LibreOffice_4.4.3_Win_x86.msi',
+    'LibreOffice_4.4.3_Win_x86_helppack_ru.msi'
 )
 
 """Имена исполняемых файлов"""
@@ -17,7 +17,7 @@ INSTALLER1 = os.path.join('', DIR, FILES[1])
 
 def install():
     run_msi('/i', INSTALLER0, 'RebootYesNo=No', 'REGISTER_ALL_MSO_TYPES=0',
-        'UI_LANGS=ru_RU')
+        'UI_LANGS=ru_RU', 'REMOVE=gm_o_Onlineupdate', 'ADDLOCAL=ru')
     run_msi('/i', INSTALLER1)
 
 

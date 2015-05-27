@@ -7,6 +7,7 @@ from scriptlib import *
 """Файлы пакета"""
 FILES = (
     'AcroRead.msi',
+    'Data1.cab'
 )
 
 """Имена исполняемых файлов"""

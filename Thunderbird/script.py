@@ -6,7 +6,7 @@ from scriptlib import *
 
 """Файлы пакета"""
 FILES = (
-    'Thunderbird_Setup.exe',
+    'Thunderbird Setup 31.7.0.exe',
 )
 
 """Имена исполняемых файлов"""

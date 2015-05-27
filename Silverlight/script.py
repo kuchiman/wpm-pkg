@@ -6,27 +6,23 @@ from scriptlib import *
 
 """Файлы пакета"""
 FILES = (
-    'silverlight_64.msi',
-    'Silverlight_64.msp',
-    'silverlight_32.msi',
-    'Silverlight_32.msp'
+    'Silverlight.exe',
+    'Silverlight_x64.exe',
 )
 
 """Имена исполняемых файлов"""
 if ARCH == '64':
-    INSTALLER = os.path.join('', DIR, FILES[0])
-    UPDATE = os.path.join('', DIR, FILES[1])
+    INSTALLER = os.path.join('', DIR, FILES[1])
 else:
-    INSTALLER = os.path.join('', DIR, FILES[2])
-    UPDATE = os.path.join('', DIR, FILES[3])
+    INSTALLER = os.path.join('', DIR, FILES[0])
 
 
 def install():
-    run_msi('/i', INSTALLER, '/update', UPDATE)
+    run_exe(INSTALLER, '/q')
 
 
 def remove():
-    run_msi('/x', INSTALLER)
+    run_exe(INSTALLER, '/qu')
 
 check_files(FILES)
 

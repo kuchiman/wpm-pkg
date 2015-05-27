@@ -6,7 +6,7 @@ from scriptlib import *
 
 """Файлы пакета"""
 FILES = (
-    'WinDjView-2.0.2-Setup.exe',
+    'WinDjView-2.1-Setup.exe',
 )
 
 """Имена исполняемых файлов"""
