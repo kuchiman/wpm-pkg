@@ -6,7 +6,7 @@ from scriptlib import *
 
 """Файлы пакета"""
 FILES = (
-    'Firefox_Setup.exe',
+    'Firefox Setup 38.0.1.exe',
 )
 
 """Имена исполняемых файлов"""
