@@ -15,12 +15,12 @@ INSTALLER0 = os.path.join('', DIR, FILES[1])
 INSTALLER1 = os.path.join('', DIR, FILES[0])
 
 UNINSTALLER = os.path.join('', SYSDIR, 'GIMP',
-    'uninst', 'unins000.exe')
+    'unins000.exe')
 
 
 def install():
     run_exe(INSTALLER0, '/verysilent', '/norestart',
-        '/dir='+os.path.join('', SYSDIR, 'GIMP'))
+        '/dir=' + os.path.join('', SYSDIR, 'GIMP'))
     run_exe(INSTALLER0, '/silent', '/norestart')
 
 
