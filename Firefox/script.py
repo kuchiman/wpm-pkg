@@ -7,6 +7,7 @@ from scriptlib import *
 """Файлы пакета"""
 FILES = (
     'Firefox Setup 38.0.1.exe',
+    'autoconfig.js'
 )
 
 """Имена исполняемых файлов"""
@@ -14,9 +15,13 @@ INSTALLER = os.path.join('', DIR, FILES[0])
 UNINSTALLER = os.path.join('', SYSDIR, 'Mozilla Firefox',
     'uninstall', 'helper.exe')
 
+"""Конфиг"""
+CONFDIR = os.path.join('', SYSDIR, 'Mozilla Firefox', 'defaults', 'pref')
+
 
 def install():
     run_exe(INSTALLER, '/s')
+    copy(FILES[1], CONFDIR)
 
 
 def remove():
