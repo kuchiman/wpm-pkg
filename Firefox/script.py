@@ -7,7 +7,7 @@ from scriptlib import *
 """Файлы пакета"""
 FILES = (
     'Firefox Setup 37.0b7.exe',
-    'autoconfig.js'
+    'all.js'
 )
 
 """Имена исполняемых файлов"""
