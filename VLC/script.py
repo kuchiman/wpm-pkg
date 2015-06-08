@@ -13,10 +13,10 @@ FILES = (
 """Имена исполняемых файлов"""
 if ARCH == '64':
     INSTALLER = os.path.join('', DIR, FILES[1])
+    UNINSTALLER = os.path.join('', SYSDIR64, 'VideoLAN', 'VLC', 'uninstall.exe')
 else:
     INSTALLER = os.path.join('', DIR, FILES[0])
-
-UNINSTALLER = os.path.join('', SYSDIR, 'VideoLAN', 'VLC', 'uninstall.exe')
+    UNINSTALLER = os.path.join('', SYSDIR, 'VideoLAN', 'VLC', 'uninstall.exe')
 
 
 def install():
