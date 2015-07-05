@@ -1,47 +1,32 @@
-import os
+# -*- coding: utf-8 -*-
 import sys
-import platform
-import subprocess
+
+sys.path.append(sys.argv[1])
+from scriptlib import *
+
+"""Файлы пакета"""
+FILES = (
+    '7z920-x64.msi',
+    '7z920.msi'
+)
 
 """Имена исполняемых файлов"""
-if platform.machine() == 'AMD64':
-    INSTALLER = '7z920-x64.msi'
+if ARCH == '64':
+    INSTALLER = os.path.join('', DIR, FILES[0])
 else:
-    INSTALLER = '7z920.msi'
-
-"""Текущая директория"""
-DIR = os.path.dirname(sys.argv[0])
-
-"""Полный путь к исполняемым файлам"""
-BNINSTALLER = os.path.join('', DIR, INSTALLER)
-
-
-def check_files():
-    if not os.path.isfile(BNINSTALLER):
-        print("Отсутствует инсталлятор!!")
-        sys.exit()
-
-
-def taskkill():
-    subprocess.call(['taskkill.exe', '/F', '/T', '/IM', INSTALLER],
-        shell=False, stdout=subprocess.PIPE)
-
-
-def remove():
-    if os.path.isfile(BNINSTALLER):
-        subprocess.call(['msiexec', '/qn', '/x', BNINSTALLER],
-            shell=False, stdout=subprocess.PIPE)
+    INSTALLER = os.path.join('', DIR, FILES[1])
 
 
 def install():
-    if os.path.isfile(BNINSTALLER):
-        subprocess.call(['msiexec', '/qn', '/i', BNINSTALLER],
-            shell=False, stdout=subprocess.PIPE)
+    run_msi('/i', INSTALLER)
 
-check_files()
-taskkill()
 
-if sys.argv[1] == 'install':
+def remove():
+    run_msi('/x', INSTALLER)
+
+check_files(FILES)
+
+if ACTION == 'install':
     install()
-elif sys.argv[1] == 'remove':
+elif ACTION == 'remove':
     remove()

@@ -6,23 +6,25 @@ from scriptlib import *
 
 """Файлы пакета"""
 FILES = (
-    'Silverlight.exe',
-    'Silverlight_x64.exe',
+    'vlc-2.2.1-win32.exe',
+    'vlc-2.2.1-win64.exe'
 )
 
 """Имена исполняемых файлов"""
 if ARCH == '64':
     INSTALLER = os.path.join('', DIR, FILES[1])
+    UNINSTALLER = os.path.join('', SYSDIR64, 'VideoLAN', 'VLC', 'uninstall.exe')
 else:
     INSTALLER = os.path.join('', DIR, FILES[0])
+    UNINSTALLER = os.path.join('', SYSDIR, 'VideoLAN', 'VLC', 'uninstall.exe')
 
 
 def install():
-    run_exe(INSTALLER, '/q')
+    run_exe(INSTALLER, '/S')
 
 
 def remove():
-    run_exe(INSTALLER, '/qu')
+    run_exe(UNINSTALLER, '/S')
 
 check_files(FILES)
 

@@ -1,49 +1,33 @@
-import os
+# -*- coding: utf-8 -*-
 import sys
-import subprocess
+
+sys.path.append(sys.argv[1])
+from scriptlib import *
+
+"""Файлы пакета"""
+FILES = (
+    'LibreOffice_4.4.3_Win_x86.msi',
+    'LibreOffice_4.4.3_Win_x86_helppack_ru.msi'
+)
 
 """Имена исполняемых файлов"""
-INSTALLER1 = 'LibreOffice_Win_x86.msi'
-INSTALLER2 = 'LibreOffice_Win_x86_helppack_ru.msi'
-
-"""Текущая директория"""
-DIR = os.path.dirname(sys.argv[0])
-
-"""Полный путь к исполняемым файлам"""
-BNINSTALLER1 = os.path.join('', DIR, INSTALLER1)
-BNINSTALLER2 = os.path.join('', DIR, INSTALLER2)
-
-
-def check_files():
-    if not os.path.isfile(BNINSTALLER1) or not os.path.isfile(BNINSTALLER2):
-        sys.exit()
-
-
-def taskkill():
-    subprocess.call(['taskkill.exe', '/F', '/T',
-        '/IM', INSTALLER1, '/IM', INSTALLER2],
-        shell=False, stdout=None)
-
-
-def remove():
-    p1=subprocess.call(['msiexec', '/qn', '/x', BNINSTALLER1],
-        shell=True, stdout=None)
-    p2=subprocess.call(['msiexec', '/qn', '/x', BNINSTALLER2],
-        shell=True, stdout=None)
+INSTALLER0 = os.path.join('', DIR, FILES[0])
+INSTALLER1 = os.path.join('', DIR, FILES[1])
 
 
 def install():
-    p1=subprocess.call(['msiexec', '/qn', '/i', BNINSTALLER1,
-        'RebootYesNo=No', 'REGISTER_ALL_MSO_TYPES=0', 'UI_LANGS=ru_RU'],
-        shell=True, stdout=None)
-    p2=subprocess.call(['msiexec', '/qn', '/i', BNINSTALLER2],
-        shell=True, stdout=None)
-
-check_files()
-taskkill()
+    run_msi('/i', INSTALLER0, 'RebootYesNo=No', 'REGISTER_ALL_MSO_TYPES=0',
+        'UI_LANGS=ru_RU')
+    run_msi('/i', INSTALLER1)
 
 
-if sys.argv[1] == 'install':
+def remove():
+    run_msi('/x', INSTALLER0)
+    run_msi('/x', INSTALLER1)
+
+check_files(FILES)
+
+if ACTION == 'install':
     install()
-elif sys.argv[1] == 'remove':
+elif ACTION == 'remove':
     remove()
