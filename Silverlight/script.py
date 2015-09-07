@@ -8,6 +8,7 @@ from scriptlib import *
 FILES = (
     'Silverlight.exe',
     'Silverlight_x64.exe',
+    'CleanSilverlight.cmd'
 )
 
 """Имена исполняемых файлов"""
@@ -16,13 +17,16 @@ if ARCH == '64':
 else:
     INSTALLER = os.path.join('', DIR, FILES[0])
 
+UNINSTALLER = os.path.join('', DIR, FILES[2])
+
 
 def install():
+    run_cmd(UNINSTALLER)
     run_exe(INSTALLER, '/q')
 
 
 def remove():
-    run_exe(INSTALLER, '/qu')
+    run_cmd(UNINSTALLER)
 
 check_files(FILES)
 
