@@ -24,7 +24,7 @@ def install():
 
 
 def remove():
-    run_exe(UNINSTALLER, '/uninstall')
+    run_exe(INSTALLER, '/uninstall')
 
 check_files(FILES)
 
