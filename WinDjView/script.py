@@ -19,7 +19,9 @@ def install():
 
 
 def remove():
-    run_exe(UNINSTALLER, '/S')
+    #нужно подумать как вывести эту проверку в библиотечный файл
+    if os.path.isfile(UNINSTALLER):
+        run_exe(UNINSTALLER, '/S')
 
 check_files(FILES)
 

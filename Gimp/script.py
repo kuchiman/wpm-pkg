@@ -25,7 +25,9 @@ def install():
 
 
 def remove():
-    run_exe(UNINSTALLER, '/verysilent', '/norestart')
+    #нужно подумать как вывести эту проверку в библиотечный файл
+    if os.path.isfile(UNINSTALLER):
+        run_exe(UNINSTALLER, '/verysilent', '/norestart')
 
 check_files(FILES)
 
