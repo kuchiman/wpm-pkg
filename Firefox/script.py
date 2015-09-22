@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#http://ftp.mozilla.org/pub/firefox/releases
 import sys
 
 sys.path.append(sys.argv[1])

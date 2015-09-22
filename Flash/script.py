@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#http://www.adobe.com/ru/products/flashplayer/distribution3.html
 import sys
 
 sys.path.append(sys.argv[1])
